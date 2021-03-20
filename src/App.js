@@ -19,7 +19,7 @@ import Dashboard from './pages/back/Dashboard';
 
 function App() {
   
-  const [loggon, setLoggon] = useState(false);
+  const [loggon, setLoggon] = useState(true);
 
   return (
     <Router>
