@@ -1,57 +1,68 @@
-import './App.css';
-import About from "./pages/About";
-import Shop from "./pages/Shop";
-import Nav from "./components/Nav";
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
+import './App.css';
+
+import Nav from "./components/Nav";
+import Home from './pages/front/Home'
+import Courses from './pages/front/Courses';
+import Events from './pages/front/Events';
+import Login from './pages/front/Login';
+import Signup from './pages/front/Signup';
+import NavLogin from './components/NavLogin';
+import NavSignup from './components/NavSignup';
+import NavDashboard from './components/NavDashboard';
+import Dashboard from './pages/back/Dashboard';
+
+// import About from "./pages/About";
+// import Shop from "./pages/Shop";
+
 function App() {
+  
+  const [loggon, setLoggon] = useState(false);
+
   return (
     <Router>
-      <div className="App">
-        <Nav />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/shop' component={Shop} />
-        </Switch>
-      </div>
+
+      {
+        (loggon) ?
+        <div className="App">
+          <NavDashboard />
+          <Switch>
+            <Route path='/dashboard' exact component={Dashboard} />
+            <Route path='/exams' axact component={Home} />
+            <Route path='/exercises' axact component={Home} />
+          </Switch>
+        </div>
+        :
+        <div className="App" >
+          <Switch>
+            <Route path="/" exact>
+              <Nav />
+              <Home />
+            </Route>
+            <Route path="/courses" exact>
+              <Nav />
+              <Courses />
+            </Route>
+            <Route path="/events" exact>
+              <Nav />
+              <Events />
+            </Route>
+            <Route path="/login" exact>
+              <NavLogin />
+              <Login />
+            </Route>
+            <Route path="/signup" exact>
+              <NavSignup />
+              <Signup />
+            </Route>
+
+          </Switch>
+        </div>
+      }
     </Router>
   );
-}
-
-const Home = () => {
-  return(
-    <>
-      <div className="bg-white dark:bg-gray-800 ">
-        <div
-          className="lg:flex lg:items-center lg:justify-between w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-          <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
-            <span className="block">
-                Want to be millionaire ?
-            </span>
-            <span className="block text-indigo-500">
-                It&#x27;s today or never.
-            </span>
-          </h2>
-          <div className="lg:mt-0 lg:flex-shrink-0">
-            <div className=" inline-flex rounded-md shadow">
-              <button type="button"
-                      className="py-4 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                Get started
-              </button>
-            </div>
-            <div className="ml-3 inline-flex rounded-md shadow">
-              <button type="button"
-                      className="py-4 px-6  bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                Invite friend
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </>
-  )
 }
 
 export default App;

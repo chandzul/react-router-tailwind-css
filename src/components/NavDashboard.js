@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import logo from './assets/img/logo.png'
 
-function Nav() {
+function NavDashboard() {
   return (
   <div class="flex flex-col sm:flex-row bg-yellow-400 px-6">
     <div class="flex-1 flex justify-center md:justify-start">
@@ -38,4 +38,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default NavDashboard;
