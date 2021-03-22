@@ -12,14 +12,11 @@ import Signup from './pages/front/Signup';
 import NavLogin from './components/NavLogin';
 import NavSignup from './components/NavSignup';
 import NavDashboard from './components/NavDashboard';
-import Dashboard from './pages/back/Dashboard';
-
-// import About from "./pages/About";
-// import Shop from "./pages/Shop";
+import Footer from './components/Footer';
 
 function App() {
   
-  const [loggon, setLoggon] = useState(true);
+  const [loggon, setLoggon] = useState(false);
 
   return (
     <Router>
@@ -28,11 +25,6 @@ function App() {
         (loggon) ?
         <div className="App">
           <NavDashboard />
-          <Switch>
-            <Route path='/dashboard' exact component={Dashboard} />
-            <Route path='/exams' axact component={Home} />
-            <Route path='/exercises' axact component={Home} />
-          </Switch>
         </div>
         :
         <div className="App" >
@@ -40,22 +32,27 @@ function App() {
             <Route path="/" exact>
               <Nav />
               <Home />
+              <Footer />
             </Route>
             <Route path="/courses" exact>
               <Nav />
               <Courses />
+              <Footer />
             </Route>
             <Route path="/events" exact>
               <Nav />
               <Events />
+              <Footer />
             </Route>
             <Route path="/login" exact>
               <NavLogin />
               <Login />
+              <Footer />
             </Route>
             <Route path="/signup" exact>
               <NavSignup />
               <Signup />
+              <Footer />
             </Route>
 
           </Switch>

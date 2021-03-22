@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
 
 import logo from './assets/img/logo.png'
+import Dashboard from "../pages/back/Dashboard";
+import Exams from "../pages/back/Exams";
+import Exercises from "../pages/back/Exercises";
 
 function NavDashboard() {
   return (
@@ -28,22 +31,27 @@ function NavDashboard() {
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
               <nav class="px-2 space-y-1">
-                
-                  
-                    <a href="#" class="bg-indigo-800 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+
+                  <Link to='/dashboard' className="bg-indigo-800 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+
+                    {/*<a href="#" >*/}
                       <svg class="mr-4 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                       </svg>
                       Dashboard
-                    </a>
+                    {/*</a>*/}
+                  </Link>
                   
-                  
-                    <a href="#" class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                    <Link to='/exams' class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+
+
+                    {/*<a href="#" >*/}
                       <svg class="mr-4 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
   </svg>
-                      Team
-                    </a>
+                      Exams
+                    {/*</a>*/}
+                    </Link>
                   
                   
                     <a href="#" class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
@@ -93,22 +101,26 @@ function NavDashboard() {
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <nav class="flex-1 px-2 space-y-1">
-                
-                  
-                    <a href="#" class="bg-indigo-800 text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
+                  <Link to='/dashboard' class="bg-indigo-800 text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                    {/*<a href="#" >*/}
                       <svg class="mr-3 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
   </svg>
                       Dashboard
-                    </a>
+                    {/*</a>*/}
+                  </Link>
                   
-                  
-                    <a href="#" class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                    <Link to='/exams' class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
+
+                    {/*<a href="#" >*/}
                       <svg class="mr-3 h-6 w-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
   </svg>
-                      Team
-                    </a>
+                      Exams
+                    {/*</a>*/}
+                    </Link>
                   
                   
                     <a href="#" class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
@@ -207,7 +219,13 @@ function NavDashboard() {
             </div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               <div class="py-4">
-                <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
+                <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
+                  <Switch>
+                    <Route path='/dashboard' exact component={Dashboard} />
+                    <Route path='/exams' axact component={Exams} />
+                    <Route path='/exercises' axact component={Exercises} />
+                  </Switch>
+                </div>
               </div>
             </div>
           </div>
