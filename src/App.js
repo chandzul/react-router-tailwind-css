@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
 
 import './App.css';
 
@@ -11,12 +11,12 @@ import Login from './pages/front/Login';
 import Signup from './pages/front/Signup';
 import NavLogin from './components/NavLogin';
 import NavSignup from './components/NavSignup';
-import NavDashboard from './components/NavDashboard';
+import NavBackend from './components/NavBackend';
 import Footer from './components/Footer';
 
 function App() {
   
-  const [loggon, setLoggon] = useState(false);
+  const [loggon, setLoggon] = useState(true);
 
   return (
     <Router>
@@ -24,7 +24,7 @@ function App() {
       {
         (loggon) ?
         <div className="App">
-          <NavDashboard />
+          <NavBackend />
         </div>
         :
         <div className="App" >
