@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
+import {Link, Route, Switch, Redirect} from 'react-router-dom';
 
 import logo from './assets/img/logo.png'
 import Dashboard from "../pages/back/Dashboard";
@@ -221,6 +221,9 @@ function NavDashboard() {
               <div class="py-4">
                 <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
                   <Switch>
+                    <Route exact path="/">
+                      <Redirect to="/dashboard" />
+                    </Route>
                     <Route path='/dashboard' exact component={Dashboard} />
                     <Route path='/exams' axact component={Exams} />
                     <Route path='/exercises' axact component={Exercises} />

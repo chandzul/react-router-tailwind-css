@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
+import {Link, Redirect, Route, Switch} from 'react-router-dom';
 
 import logotype from './assets/img/logotype.svg';
 import Dashboard from "../pages/back/Dashboard";
@@ -14,7 +14,7 @@ function NavBackend() {
 
         <div className="h-screen flex overflow-hidden bg-gray-100" data-todo-x-data="{ sidebarOpen: false }" data-todo-at-keydown-window-escape="sidebarOpen = false">
           <div data-todo-x-show="sidebarOpen" className="md:hidden" data-todo-x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state.">
-            <div className="fixed inset-0 flex z-40">
+            <div className="fixed inset-0 flex z-40 hidden">
               <div data-todo-at-click="sidebarOpen = false" data-todo-x-show="sidebarOpen" data-todo-x-description="Off-canvas menu overlay, show/hide based on off-canvas menu state." data-todo-x-transition-enter="transition-opacity ease-linear duration-300" data-todo-x-transition-enter-start="opacity-0" data-todo-x-transition-enter-end="opacity-100" data-todo-x-transition-leave="transition-opacity ease-linear duration-300" data-todo-x-transition-leave-start="opacity-100" data-todo-x-transition-leave-end="opacity-0" className="fixed inset-0" aria-hidden="true">
                 <div className="absolute inset-0 bg-gray-600 opacity-75"></div>
               </div>
@@ -222,6 +222,9 @@ function NavBackend() {
                     {/*<div className="border-4 border-dashed border-gray-200 rounded-lg h-96">*/}
 
                       <Switch>
+                        <Route exact path="/">
+                          <Redirect to="/dashboard" />
+                        </Route>
                         <Route path='/dashboard' exact component={Dashboard} />
                         <Route path='/exams' axact component={Exams} />
                         <Route path='/exercises' axact component={Exercises} />
