@@ -6,9 +6,9 @@ function TakeExam() {
     <>
       <div className="bg-gray-800 shadow-lg rounded-2xl mb-6">
         <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-xl leading-6 font-medium text-white">
+          <h1 className=" text-white text-2xl text-black font-bold">
             Next Exam
-          </h3>
+          </h1>
           <div className="mt-2 max-w-xl text-sm text-gray-400">
             <p>
               From its medieval origins to the digital era, learn everything there.
@@ -28,6 +28,7 @@ function TakeExam() {
               Take Exam
             </button>
           </div>
+
         </div>
       </div>
     </>
